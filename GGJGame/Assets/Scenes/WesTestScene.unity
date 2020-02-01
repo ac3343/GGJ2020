@@ -318,7 +318,6 @@ MonoBehaviour:
   m_NodeOne: {fileID: 2094891801}
   m_NodeTwo: {fileID: 515245213}
   m_IsDirectional: 0
-  m_ActiveCost: 1
 --- !u!114 &287160774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +629,7 @@ GameObject:
   - component: {fileID: 536089978}
   - component: {fileID: 536089977}
   - component: {fileID: 536089976}
+  - component: {fileID: 536089981}
   m_Layer: 5
   m_Name: ResourceButton3
   m_TagString: Untagged
@@ -649,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05acc314be6abca4ebe4020e1c120bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ResourceType: 0
 --- !u!114 &536089977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +749,19 @@ RectTransform:
   m_AnchoredPosition: {x: -174.7, y: 5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &536089981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536089975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c33ef84e40f42a48a7561167bb22a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActiveCost: 1
 --- !u!1 &641482623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1181,6 @@ MonoBehaviour:
   m_NodeOne: {fileID: 2094891801}
   m_NodeTwo: {fileID: 72036078}
   m_IsDirectional: 0
-  m_ActiveCost: 1
 --- !u!1 &967001074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +1839,6 @@ MonoBehaviour:
   m_NodeOne: {fileID: 536089976}
   m_NodeTwo: {fileID: 1380791946}
   m_IsDirectional: 0
-  m_ActiveCost: 1
 --- !u!114 &1431644312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1919,6 +1931,7 @@ GameObject:
   - component: {fileID: 1489835036}
   - component: {fileID: 1489835035}
   - component: {fileID: 1489835034}
+  - component: {fileID: 1489835039}
   m_Layer: 5
   m_Name: ResourceButton2
   m_TagString: Untagged
@@ -1938,6 +1951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05acc314be6abca4ebe4020e1c120bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ResourceType: 0
 --- !u!114 &1489835035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2037,6 +2051,19 @@ RectTransform:
   m_AnchoredPosition: {x: -174.7, y: -83}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1489835039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489835033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c33ef84e40f42a48a7561167bb22a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActiveCost: 1
 --- !u!1 &1607764460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,7 +2581,6 @@ MonoBehaviour:
   m_NodeOne: {fileID: 1489835034}
   m_NodeTwo: {fileID: 515245213}
   m_IsDirectional: 0
-  m_ActiveCost: 1
 --- !u!114 &2000915948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2647,6 +2673,7 @@ GameObject:
   - component: {fileID: 2094891803}
   - component: {fileID: 2094891802}
   - component: {fileID: 2094891801}
+  - component: {fileID: 2094891805}
   m_Layer: 5
   m_Name: ResourceButton1
   m_TagString: Untagged
@@ -2686,6 +2713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05acc314be6abca4ebe4020e1c120bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ResourceType: 0
 --- !u!114 &2094891802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2765,6 +2793,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094891799}
   m_CullTransparentMesh: 0
+--- !u!114 &2094891805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094891799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c33ef84e40f42a48a7561167bb22a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActiveCost: 1
 --- !u!1 &2095255090
 GameObject:
   m_ObjectHideFlags: 0

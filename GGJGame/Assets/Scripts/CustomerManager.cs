@@ -17,7 +17,7 @@ public class CustomerManager : Singleton<CustomerManager>
     // Start is called before the first frame update
     void Start()
     {
-        
+        EventSystem.PowerConsumerActiveStateChangeHandler += UpdateCustomerOrders;
     }
 
     // Update is called once per frame

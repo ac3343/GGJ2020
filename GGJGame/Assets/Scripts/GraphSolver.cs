@@ -35,7 +35,9 @@ public class GraphSolver : Singleton<GraphSolver>
 
         foreach(NodeConnection c in start_node.Connections)
         {
-            if(!include_off_paths && !c.IsActive)
+            PowerConsumer power_consumer_comp = c.GetComponent<PowerConsumer>();
+
+            if(!include_off_paths && (!power_consumer_comp || !power_consumer_comp.IsActive))
             {
                 continue;
             }
@@ -60,7 +62,9 @@ public class GraphSolver : Singleton<GraphSolver>
 
             foreach (NodeConnection c in _currentNode.Connections)
             {
-                if (!include_off_paths && !c.IsActive)
+                PowerConsumer power_consumer_comp = c.GetComponent<PowerConsumer>();
+
+                if (!include_off_paths && (!power_consumer_comp || !power_consumer_comp.IsActive))
                 {
                     continue;
                 }
