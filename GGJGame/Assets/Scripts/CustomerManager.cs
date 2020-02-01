@@ -34,15 +34,26 @@ public class CustomerManager : Singleton<CustomerManager>
             {
                 ResourceNode[] resources = GraphSolver.Instance.Resources;
                 LocationNode[] locations = GraphSolver.Instance.Locations;
-                int random_resource_index = Random.Range(0, resources.Length - 1);
-                int random_location_index = Random.Range(0, resources.Length - 1);
+                int random_resource_index = Random.Range(0, resources.Length);
 
                 CustomerOrder order;
                 order.m_Resource = resources[random_resource_index];
-                order.m_Destination = locations[random_location_index];
+
+                int order_attempts = 0;
+                LocationNode random_location;
+                do
+                {
+                    order_attempts++;
+                    int random_location_index = Random.Range(0, locations.Length);
+                    random_location =  locations[random_location_index];
+                }
+                while (!GraphSolver.Instance.FindPath(order.m_Resource, random_location, true) && order_attempts < resources.Length * 2);
+
+                order.m_Destination = random_location;
+
                 order.m_Reward = Random.Range(1, m_MaxRewardAmount);
                 //TODO: this is hard coded, fix this at some point to not be
-                order.m_OrderDuration = 2.0f;
+                order.m_OrderDuration = 5.0f;
                 order.m_OrderFulfillmentDuration = 0;
 
                 customer_comp.SetupCustomer(order);
