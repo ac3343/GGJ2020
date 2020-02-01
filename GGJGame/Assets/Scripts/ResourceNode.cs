@@ -2,8 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum ResourceTypes
+{
+    ResourceOne = 0,
+    ResourceTwo,
+    ResourceThree,
+    Medicine,
+
+    ResourceCount
+}
+
 public class ResourceNode : NodeInterface
 {
+    [SerializeField]
+    ResourceTypes m_ResourceType;
+
     // Start is called before the first frame update
     protected override void Start()
     {
