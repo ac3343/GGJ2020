@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f1ae105b9485240a51766b1faedd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Connections: []
 --- !u!114 &72036079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,8 +537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f945eb6451acec947bb8776035bf8ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NodeOne: {fileID: 0}
-  m_NodeTwo: {fileID: 0}
+  m_NodeOne: {fileID: 2094891801}
+  m_NodeTwo: {fileID: 72036078}
   m_ActiveCost: 1
 --- !u!1 &967001074
 GameObject:
@@ -554,6 +553,7 @@ GameObject:
   - component: {fileID: 967001077}
   - component: {fileID: 967001076}
   - component: {fileID: 967001075}
+  - component: {fileID: 967001080}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -648,6 +648,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967001080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967001074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651b19d4ff95a5242af60e06b1168bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxRewardAmount: 10
 --- !u!1 &1111263761
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05acc314be6abca4ebe4020e1c120bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Connections: []
 --- !u!114 &2094891802
 MonoBehaviour:
   m_ObjectHideFlags: 0
