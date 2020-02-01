@@ -39,6 +39,8 @@ public class PowerManager : MonoBehaviour
 
     public bool DrainPower(int amount)
     {
+        Debug.Log("Someone requested " + amount + " power and we have " + m_CurrentPowerAmount + " power left");
+
         if(amount < m_CurrentPowerAmount)
         {
             m_CurrentPowerAmount -= amount;
@@ -46,6 +48,17 @@ public class PowerManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void RestorePower(int amount)
+    {
+        Debug.Log("Someone restored " + amount + " power back to us");
+        m_CurrentPowerAmount += amount;
+
+        if (m_CurrentPowerAmount > m_MaxPowerAmount)
+        {
+            Debug.LogError("We somehow have more power than when we started!");
+        }
     }
 
     public static PowerManager Instance
