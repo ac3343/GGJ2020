@@ -47,4 +47,9 @@ public abstract class NodeInterface : MonoBehaviour
 
         Debug.Log(connection_names);
     }
+
+    public List<NodeConnection> Connections
+    {
+        get { return m_Connections; }
+    }
 }
