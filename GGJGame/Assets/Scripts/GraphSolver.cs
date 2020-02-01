@@ -30,6 +30,54 @@ public class GraphSolver : Singleton<GraphSolver>
 
     public bool FindPath(NodeInterface start_node, NodeInterface end_node, bool include_off_paths)
     {
+        List<NodeInterface> _TouchedNodes = new List<NodeInterface>();
+        Queue<NodeInterface> _Nodes = new Queue<NodeInterface>();
+
+        foreach(NodeConnection c in start_node.Connections)
+        {
+            if(!include_off_paths && !c.IsActive)
+            {
+                continue;
+            }
+
+            NodeInterface _OtherNode = c.GetOtherConnection(start_node);
+
+            if(_OtherNode == end_node)
+            {
+                return true;
+            }
+            else
+            {
+                _Nodes.Enqueue(_OtherNode);
+                _TouchedNodes.Add(_OtherNode);
+
+            }
+        }
+
+        while(_Nodes.Count > 0)
+        {
+            NodeInterface _currentNode = _Nodes.Dequeue();
+
+            foreach (NodeConnection c in _currentNode.Connections)
+            {
+                if (!include_off_paths && !c.IsActive)
+                {
+                    continue;
+                }
+
+                NodeInterface _OtherNode = c.GetOtherConnection(start_node);
+
+                if (_OtherNode == end_node)
+                {
+                    return true;
+                }
+                else if(!_TouchedNodes.Contains(_OtherNode))
+                {
+                    _Nodes.Enqueue(_OtherNode);
+                    _TouchedNodes.Add(_OtherNode);
+                }
+            }
+        }
         return false;
     }
 

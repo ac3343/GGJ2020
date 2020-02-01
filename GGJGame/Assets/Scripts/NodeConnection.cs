@@ -97,4 +97,9 @@ public class NodeConnection : MonoBehaviour
     {
         return m_NodeOne == requesting_node || m_NodeTwo == requesting_node;
     }
+
+    public bool IsActive
+    {
+        get { return m_Active; }
+    }
 }
