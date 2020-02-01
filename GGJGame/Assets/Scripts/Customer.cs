@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-    public struct CustomerOrder
-    {
-        public ResourceNode m_Resource;
-        public LocationNode m_Destination;
-        public float m_OrderDuration;
-        public float m_OrderFulfillmentDuration;
-        public int m_Reward;
+public struct CustomerOrder
+{
 
-        public bool IsValid()
-        {
-            //The order fulfillment duration can be zero or less, that just auto completes the order when the player satisfies the conditions
-            return m_Resource && m_Destination && m_OrderDuration > 0 && m_Reward > 0;
-        }
+    public ResourceNode m_Resource;
+    public LocationNode m_Destination;
+    public float m_OrderDuration;
+    public float m_OrderFulfillmentDuration;
+    public int m_Reward;
+
+    public bool IsValid()
+    {
+        //The order fulfillment duration can be zero or less, that just auto completes the order when the player satisfies the conditions
+        return m_Resource && m_Destination && m_OrderDuration > 0 && m_Reward > 0;
     }
+}
 
 public class Customer : MonoBehaviour
 {
