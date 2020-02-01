@@ -31,6 +31,7 @@ public class GraphSolver : Singleton<GraphSolver>
     public bool FindPath(NodeInterface start_node, NodeInterface end_node, bool include_off_paths)
     {
         List<NodeInterface> _TouchedNodes = new List<NodeInterface>();
+        _TouchedNodes.Add(start_node);
         Queue<NodeInterface> _Nodes = new Queue<NodeInterface>();
 
         foreach(NodeConnection c in start_node.Connections)
@@ -69,7 +70,7 @@ public class GraphSolver : Singleton<GraphSolver>
                     continue;
                 }
 
-                NodeInterface _OtherNode = c.GetOtherConnection(start_node);
+                NodeInterface _OtherNode = c.GetOtherConnection(_currentNode);
 
                 if (_OtherNode == end_node)
                 {

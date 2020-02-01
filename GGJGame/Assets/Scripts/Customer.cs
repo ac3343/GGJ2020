@@ -75,6 +75,8 @@ public class Customer : MonoBehaviour
         m_Order = order;
         m_CurrentOrderDuration = m_Order.m_OrderDuration;
         m_CurrentOrderFulfillmentDuration = m_Order.m_OrderFulfillmentDuration;
+
+        UpdateOrder();
     }
 
     public void UpdateOrder()
