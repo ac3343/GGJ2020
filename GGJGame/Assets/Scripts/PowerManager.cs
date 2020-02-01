@@ -29,7 +29,7 @@ public class PowerManager : Singleton<PowerManager>
     {
         Debug.Log("Someone requested " + amount + " power and we have " + m_CurrentPowerAmount + " power left");
 
-        if(amount < m_CurrentPowerAmount)
+        if(amount <= m_CurrentPowerAmount)
         {
             m_CurrentPowerAmount -= amount;
             return true;
