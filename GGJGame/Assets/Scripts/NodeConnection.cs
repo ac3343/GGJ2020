@@ -9,9 +9,12 @@ public class NodeConnection : MonoBehaviour
     NodeInterface m_NodeOne;
     [SerializeField]
     NodeInterface m_NodeTwo;
-    bool m_Active;
+    [SerializeField]
+    bool m_IsDirectional;
     [SerializeField]
     int m_ActiveCost;
+
+    bool m_Active;
 
     void Awake()
     {
@@ -75,13 +78,19 @@ public class NodeConnection : MonoBehaviour
         }
         else if(m_NodeTwo == requesting_node)
         {
-            return m_NodeOne;
+            //If the connection is a directional connection then we will always have the connection going to node two, not node one
+            if (!m_IsDirectional)
+            {
+                return m_NodeOne;
+            }
         }
         else
         {
             Debug.LogError(requesting_node.name + " tried getting the other node in connection " + this.name + " when it isn't a part of this connection!");
             return null;
         }
+
+        return null;
     }
 
     public bool ConnectionHasNode(NodeInterface requesting_node)
