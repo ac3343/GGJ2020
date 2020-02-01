@@ -41,6 +41,7 @@ public class CustomerManager : Singleton<CustomerManager>
                 order.m_Resource = resources[random_resource_index];
                 order.m_Destination = locations[random_location_index];
                 order.m_Reward = Random.Range(1, m_MaxRewardAmount);
+                //TODO: this is hard coded, fix this at some point to not be
                 order.m_OrderDuration = 2.0f;
                 order.m_OrderFulfillmentDuration = 0;
 
