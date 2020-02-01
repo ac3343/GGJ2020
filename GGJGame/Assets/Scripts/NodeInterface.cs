@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public abstract class NodeInterface : MonoBehaviour
 {
     [SerializeField]
-    NodeConnection[] m_Connections;
+    protected List<NodeConnection> m_Connections;
 
     protected virtual void Start()
     {
@@ -18,7 +18,34 @@ public abstract class NodeInterface : MonoBehaviour
         }
 
         button_comp.onClick.AddListener(NodeOnClick);
+
+        NodeConnection[] all_connections = FindObjectsOfType<NodeConnection>();
+        m_Connections = new List<NodeConnection>();
+
+        //This is pretty slow, but it prevents weird bugs from not connecting things correctly
+        for (int i = 0; i < all_connections.Length; i++)
+        {
+            if(all_connections[i].ConnectionHasNode(this))
+            {
+                m_Connections.Add(all_connections[i]);
+            }
+        }
     }
 
-    protected abstract void NodeOnClick();
+    protected virtual void NodeOnClick()
+    {
+        string connection_names = "Current connections: ";
+
+        for (int i = 0; i < m_Connections.Count; i++)
+        {
+            NodeInterface connected_node = m_Connections[i].GetOtherConnection(this);
+
+            if (connected_node)
+            {
+                connection_names += "'" + connected_node.name + "' ";
+            }
+        }
+
+        Debug.Log(connection_names);
+    }
 }

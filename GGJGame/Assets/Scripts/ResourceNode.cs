@@ -8,6 +8,7 @@ public class ResourceNode : NodeInterface
     protected override void Start()
     {
         base.Start();
+
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class ResourceNode : NodeInterface
 
     protected override void NodeOnClick()
     {
-        Debug.Log("Clicked on a Resource Node");
+        base.NodeOnClick();
+        Debug.Log("Clicked on a Resource Node.");
     }
 }

@@ -13,11 +13,15 @@ public class NodeConnection : MonoBehaviour
     [SerializeField]
     int m_ActiveCost;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //The PowerManager is a singleton so we're guaranteed to only get the correct one
         m_Active = false;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         Button button_comp = GetComponent<Button>();
 
         if(!button_comp)
@@ -54,5 +58,27 @@ public class NodeConnection : MonoBehaviour
                 Debug.Log(this.name + " didn't have enough power to turn on this connection!");
             }
         }
+    }
+
+    public NodeInterface GetOtherConnection(NodeInterface requesting_node)
+    {
+        if(m_NodeOne == requesting_node)
+        {
+            return m_NodeTwo;
+        }
+        else if(m_NodeTwo == requesting_node)
+        {
+            return m_NodeOne;
+        }
+        else
+        {
+            Debug.LogError(requesting_node.name + " tried getting the other node in connection " + this.name + " when it isn't a part of this connection!");
+            return null;
+        }
+    }
+
+    public bool ConnectionHasNode(NodeInterface requesting_node)
+    {
+        return m_NodeOne == requesting_node || m_NodeTwo == requesting_node;
     }
 }

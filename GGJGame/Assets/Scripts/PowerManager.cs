@@ -23,12 +23,14 @@ public class PowerManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
+        m_CurrentPowerAmount = m_MaxPowerAmount;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        m_CurrentPowerAmount = m_MaxPowerAmount;
+        
     }
 
     // Update is called once per frame

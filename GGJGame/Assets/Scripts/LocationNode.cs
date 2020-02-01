@@ -18,6 +18,7 @@ public class LocationNode : NodeInterface
 
     protected override void NodeOnClick()
     {
+        base.NodeOnClick();
         Debug.Log("Clicked on a Location Node");
     }
 }
