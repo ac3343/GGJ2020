@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public abstract class NodeInterface : MonoBehaviour
 {
-    [SerializeField]
     protected List<NodeConnection> m_Connections;
 
     protected virtual void Start()
@@ -19,7 +18,7 @@ public abstract class NodeInterface : MonoBehaviour
 
         button_comp.onClick.AddListener(NodeOnClick);
 
-        NodeConnection[] all_connections = FindObjectsOfType<NodeConnection>();
+        NodeConnection[] all_connections = GraphSolver.Instance.Connections;
         m_Connections = new List<NodeConnection>();
 
         //This is pretty slow, but it prevents weird bugs from not connecting things correctly

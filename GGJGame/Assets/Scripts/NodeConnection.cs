@@ -40,6 +40,8 @@ public class NodeConnection : MonoBehaviour
 
     void ConnectionOnClick()
     {
+        bool old_active = m_Active;
+
         if (m_Active)
         {
             m_Active = false;
@@ -57,6 +59,11 @@ public class NodeConnection : MonoBehaviour
             {
                 Debug.Log(this.name + " didn't have enough power to turn on this connection!");
             }
+        }
+
+        if(old_active != m_Active)
+        {
+            CustomerManager.Instance.UpdateCustomerOrders();
         }
     }
 
