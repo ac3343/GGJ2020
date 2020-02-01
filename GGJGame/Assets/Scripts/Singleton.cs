@@ -6,7 +6,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
 {
     private static T _instance;
 
-    void Awake()
+    public virtual void Awake()
     {
         //Guarantee that there is only one instance of the PowerManager
         if (_instance != null && _instance != this)
