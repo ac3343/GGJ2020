@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 72036079}
   - component: {fileID: 72036078}
   m_Layer: 5
-  m_Name: LocationButton
+  m_Name: LocationButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeOne: {fileID: 2094891801}
   m_NodeTwo: {fileID: 515245213}
+  m_IsDirectional: 0
   m_ActiveCost: 1
 --- !u!114 &287160774
 MonoBehaviour:
@@ -488,7 +489,7 @@ GameObject:
   - component: {fileID: 515245214}
   - component: {fileID: 515245213}
   m_Layer: 5
-  m_Name: LocationButton (1)
+  m_Name: LocationButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,7 +631,7 @@ GameObject:
   - component: {fileID: 536089977}
   - component: {fileID: 536089976}
   m_Layer: 5
-  m_Name: ResourceButton (2)
+  m_Name: ResourceButton3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,7 +828,7 @@ GameObject:
   - component: {fileID: 652139652}
   - component: {fileID: 652139651}
   m_Layer: 5
-  m_Name: LocationButton (3)
+  m_Name: LocationButton4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1023,7 +1024,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Location
+  m_Text: Location 2
 --- !u!222 &790072262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1165,6 +1166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeOne: {fileID: 2094891801}
   m_NodeTwo: {fileID: 72036078}
+  m_IsDirectional: 0
   m_ActiveCost: 1
 --- !u!1 &967001074
 GameObject:
@@ -1641,7 +1643,7 @@ GameObject:
   - component: {fileID: 1380791947}
   - component: {fileID: 1380791946}
   m_Layer: 5
-  m_Name: LocationButton (2)
+  m_Name: LocationButton3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1823,6 +1825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeOne: {fileID: 536089976}
   m_NodeTwo: {fileID: 1380791946}
+  m_IsDirectional: 0
   m_ActiveCost: 1
 --- !u!114 &1431644312
 MonoBehaviour:
@@ -1917,7 +1920,7 @@ GameObject:
   - component: {fileID: 1489835035}
   - component: {fileID: 1489835034}
   m_Layer: 5
-  m_Name: ResourceButton (1)
+  m_Name: ResourceButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2179,7 +2182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Location
+  m_Text: Location 4
 --- !u!222 &1623927591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2487,7 +2490,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Location
+  m_Text: Location 3
 --- !u!222 &1913607286
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2550,6 +2553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeOne: {fileID: 1489835034}
   m_NodeTwo: {fileID: 515245213}
+  m_IsDirectional: 0
   m_ActiveCost: 1
 --- !u!114 &2000915948
 MonoBehaviour:
@@ -2644,7 +2648,7 @@ GameObject:
   - component: {fileID: 2094891802}
   - component: {fileID: 2094891801}
   m_Layer: 5
-  m_Name: ResourceButton
+  m_Name: ResourceButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
