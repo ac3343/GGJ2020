@@ -9,6 +9,7 @@ public class PowerConsumer : MonoBehaviour
     int m_ActiveCost;
 
     bool m_Active;
+    Image img_comp;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,6 +19,7 @@ public class PowerConsumer : MonoBehaviour
 
     private void Start()
     {
+        img_comp = GetComponent<Image>();
         Button button_comp = GetComponent<Button>();
 
         if (!button_comp)
@@ -26,6 +28,7 @@ public class PowerConsumer : MonoBehaviour
         }
 
         button_comp.onClick.AddListener(ConnectionOnClick);
+
     }
 
     // Update is called once per frame
@@ -41,6 +44,7 @@ public class PowerConsumer : MonoBehaviour
         if (m_Active)
         {
             m_Active = false;
+            img_comp.color = Color.white;
             PowerManager.Instance.RestorePower(m_ActiveCost);
             Debug.Log(this.name + " turned this consumer off!");
         }
@@ -49,6 +53,7 @@ public class PowerConsumer : MonoBehaviour
             if (PowerManager.Instance.DrainPower(m_ActiveCost))
             {
                 m_Active = true;
+                img_comp.color = Color.green;
                 Debug.Log(this.name + " had enough power to turn this consumer on!");
             }
             else
@@ -61,6 +66,18 @@ public class PowerConsumer : MonoBehaviour
         {
             EventSystem.Instance.OnPowerConsumerActiveStateChange();
         }
+    }
+
+    public void MouseEnter()
+    {
+        if(!m_Active)
+            img_comp.color = Color.green;
+    }
+
+    public void MouseExit()
+    {
+        if (!m_Active)
+            img_comp.color = Color.white;
     }
 
     public bool IsActive
