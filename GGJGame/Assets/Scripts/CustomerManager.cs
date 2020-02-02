@@ -93,6 +93,11 @@ public class CustomerManager : Singleton<CustomerManager>
         if(m_CustomerOrders == null)
         {
             GenerateCustomerDataFromFile();
+
+            if(m_CustomerOrders == null)
+            {
+                return;
+            }
         }
 
         Debug.Log("Spawning a customer");
@@ -154,7 +159,7 @@ public class CustomerManager : Singleton<CustomerManager>
 
     void GenerateCustomerDataFromFile()
     {
-        if (m_CustomerOrders != null)
+        if (m_CustomerOrders != null || m_CustomerOrderFile == null)
         {
             return;
         }
@@ -253,5 +258,13 @@ public class CustomerManager : Singleton<CustomerManager>
     void UpdateMoneyText()
     {
         m_MoneyText.text = "$" + m_CurrentMoney + "/" + m_MoneyNeeded;
+    }
+
+    public int Money
+    {
+        get
+        {
+            return m_CurrentMoney;
+        }
     }
 }
