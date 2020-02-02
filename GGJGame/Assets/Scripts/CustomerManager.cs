@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //This class determines when a new customer should be made
 public class CustomerManager : Singleton<CustomerManager>
@@ -8,6 +9,8 @@ public class CustomerManager : Singleton<CustomerManager>
     [SerializeField]
     int m_MaxRewardAmount;
     List<Customer> m_Customers;
+
+    Text text_comp;
 
     private void Awake()
     {
@@ -18,6 +21,7 @@ public class CustomerManager : Singleton<CustomerManager>
     void Start()
     {
         EventSystem.PowerConsumerActiveStateChangeHandler += UpdateCustomerOrders;
+        text_comp = gameObject.GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -58,7 +62,11 @@ public class CustomerManager : Singleton<CustomerManager>
 
                 customer_comp.SetupCustomer(order);
                 m_Customers.Add(customer_comp);
+
+                text_comp.text = customer.name + " wants " + order.m_Resource + " wired to " + order.m_Destination + " for " + order.m_OrderDuration + " hours. They'll pay $" + order.m_Reward;
             }
+
+            
         }
     }
 
