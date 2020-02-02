@@ -65,8 +65,9 @@ public class CustomerManager : Singleton<CustomerManager>
 
         for (int i = 0; i < m_CustomerQueueSize; i++)
         {
-            GameObject text_obj = Instantiate(m_OrderTextPrefab, new Vector3(150 + 300 * i, 450), Quaternion.identity);
+            GameObject text_obj = Instantiate(m_OrderTextPrefab, new Vector3(150 + 300 * i, 800), Quaternion.identity);
             text_obj.transform.SetParent(canvas.transform);
+            text_obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * 300 + 100, -50);
             m_OrderText[i] = text_obj.GetComponent<Text>();
         }
         m_CurrentMoney = 0;
