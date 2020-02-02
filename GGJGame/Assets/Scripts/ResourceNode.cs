@@ -4,12 +4,12 @@ using UnityEngine;
 
 enum ResourceTypes
 {
-    ResourceOne = 0,
-    ResourceTwo,
-    ResourceThree,
+    Water = 0,
+    Heating,
+    Safety,
     Medicine,
 
-    ResourceCount
+    ResourceTypeCount
 }
 
 public class ResourceNode : NodeInterface
