@@ -34,7 +34,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
                 {
                     GameObject singleton_obj = new GameObject();
                     singleton_obj.name = typeof(T).Name;
-                    singleton_obj.AddComponent<T>();
+                    _instance = singleton_obj.AddComponent<T>();
                 }
             }
 

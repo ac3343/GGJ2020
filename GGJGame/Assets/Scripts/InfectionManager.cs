@@ -9,13 +9,12 @@ public class InfectionManager : Singleton<InfectionManager>
     float m_InfectPercent;
     NodeInfectionTimer[] m_NodeInfections;
     Scrollbar m_ScrollbarInfo;
-    
 
     public override void Awake()
     {
         base.Awake();
         m_NodeInfections = FindObjectsOfType<NodeInfectionTimer>();
-
+        m_InfectPercent = 0.0f;
     }
     // Start is called before the first frame update
     void Start()
@@ -26,15 +25,26 @@ public class InfectionManager : Singleton<InfectionManager>
     // Update is called once per frame
     void Update()
     {
-        float infectTotal = 0;
-
-        for(int i = 0; i < m_NodeInfections.Length; i++)
+        if (m_NodeInfections.Length > 0)
         {
-            infectTotal += m_NodeInfections[i].InfectionPercent;
+            float infectTotal = 0;
+
+            for (int i = 0; i < m_NodeInfections.Length; i++)
+            {
+                infectTotal += m_NodeInfections[i].InfectionPercent;
+            }
+
+            m_InfectPercent = infectTotal / m_NodeInfections.Length;
+
+            m_ScrollbarInfo.size = m_InfectPercent;
         }
+    }
 
-        m_InfectPercent = infectTotal / m_NodeInfections.Length;
-
-        m_ScrollbarInfo.size = m_InfectPercent;
+    public float InfectionPercent
+    {
+        get
+        {
+            return m_InfectPercent;
+        }
     }
 }
