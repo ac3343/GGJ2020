@@ -70,9 +70,9 @@ public class CustomerManager : Singleton<CustomerManager>
         }
     }
 
-    public void UpdateCustomerOrders()
+    public void UpdateCustomerOrders(GameObject triggered_obj, bool is_power_on)
     {
-        for(int i = 0;i<m_Customers.Count;i++)
+        for (int i = 0; i < m_Customers.Count; i++)
         {
             m_Customers[i].UpdateOrder();
         }

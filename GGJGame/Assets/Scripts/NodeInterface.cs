@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public abstract class NodeInterface : MonoBehaviour
 {
     protected List<NodeConnection> m_Connections;
-    protected float m_VirusPercent;
 
     protected virtual void Start()
     {
@@ -52,13 +51,5 @@ public abstract class NodeInterface : MonoBehaviour
     public List<NodeConnection> Connections
     {
         get { return m_Connections; }
-    }
-
-    public float VirusPercent
-    {
-        get
-        {
-            return m_VirusPercent;
-        }
     }
 }
