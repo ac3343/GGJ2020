@@ -1,0 +1,19 @@
+Medicine	Housing	4	6	Davis: We're seeing a growing number of patients with the virus in the housing block. If you can send us four hours of power for medical devices  we can contain the outbreak. We can give you six credits. 
+Safety 	Hospital	8	8	Forfia: There's been a riot due to fear of the virus. We desperately need safety down here. [interrupted] 8 Hours. Please! 8 Credits. 
+Heating	Life Support	17	10	Cortez: Buddy, we need some heat down in life support. Our machines are freezing, and so are we! If you can give us power for 17 hours it should be enough to keep us from having to limit our output. I have 10 big ones with your name on it. 
+Water	Recreational	9	7	Froh: We have one hell of a chemical spill down here, and need these water purifiers at full power. Now! It'll take about 9 hours. Seven credits is what we can spare.  
+Safety 	School	15	4	Thompson: You're not going to like this, but security needs to get down here, stat. We can only offer you 4 credits, but there's been a collapsed and students are trapped. We'll need approximately 15 hours of help. 
+Water	GreenHouse	8	6	Bailey: *crash* Water! *Crash* Please water! we have six credits *CRASH* 6 for 8 hours! [static] keep these plants alive so we don't starve [static][transmission interrupted] 
+Safety 	Housing	13	12	Davis: That riot has spread to the housing block, and we need security. It's going to be a minute, at least 13 hours. We have 12 credits for this, no more. 
+Heating	Recreational	19	14	Froh:The chemical spill fried some of our equipment, and anything wet is about to freeze up up here, including the pool if we don't act now. We have 14 credits, and figure we need 19 hours to get everything warmed up.  
+Safety 	Life Support	7	5	Delacroix: Smith is dead. We need safety! [gunshots] Safety! 5 credits! 7 hours! [gunshots] 
+Medicine	School	12	9	Thompson: The school is teaming with the virus, and we desperately need medicine. PLEASE. 12 hours. 9 credits. I'm begging. 
+Water	Housing	11	7	Davis: Sanitation is 
+Water	Housing			
+Water	Housing			
+Water	Housing			
+Water	Housing			
+Water	Housing			
+Water	Housing			
+Water	Housing			
+Water	Housing			

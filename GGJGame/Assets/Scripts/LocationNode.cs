@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Technically unnecessary since I can't think of a reason why we would want multiples of the same location. This makes parsing way easier though
-enum LocationTypes
+public enum LocationTypes
 {
     Housing = 0,
     Hospital,
@@ -18,7 +18,10 @@ enum LocationTypes
 
 public class LocationNode : NodeInterface
 {
+    [SerializeField]
+    LocationTypes m_LocationType;
     Image img_comp;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -50,5 +53,13 @@ public class LocationNode : NodeInterface
     {
         base.NodeOnClick();
         Debug.Log("Clicked on a Location Node");
+    }
+
+    public LocationTypes LocationType
+    {
+        get
+        {
+            return m_LocationType;
+        }
     }
 }
