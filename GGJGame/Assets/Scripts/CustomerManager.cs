@@ -104,9 +104,39 @@ public class CustomerManager : Singleton<CustomerManager>
         }
     }
     
-    public void FinishCustomer(Customer customer)
+    public void FinishCustomer(Customer customer, bool completed_order)
     {
+        //Find the passed customer and delete them and remove them from the array
+        //Compress the array and dec the number of customers
+        //Find the money meter and add the reward to it
+        bool found_customer = false;
 
+        for (int i = 0; i < m_NumQueuedCustomers; i++)
+        {
+            if (!found_customer)
+            {
+                if (customer == m_Customers[i])
+                {
+                    found_customer = true;
+
+                    if (completed_order)
+                    {
+                        //TODO: Add the reward money here
+                    }
+
+                    Destroy(customer.gameObject);
+                }
+            }
+            else
+            {
+                m_Customers[i - 1] = m_Customers[i];
+            }
+        }
+
+        if(found_customer)
+        {
+            m_NumQueuedCustomers--;
+        }
     }
 
     void GenerateCustomerDataFromFile()
