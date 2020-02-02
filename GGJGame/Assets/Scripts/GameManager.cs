@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-enum SceneIndex
+public enum SceneIndex
 {
     TitleScene = 0,
     GameplayScene,
     EndScene,
+    CreditsScene,
 
     SceneIndexCount
 }

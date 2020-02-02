@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ScreenTransition : MonoBehaviour
 {
+    [SerializeField]
+    SceneIndex m_NextScene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +17,11 @@ public class ScreenTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            SceneManager.LoadScene("Game");
-        }
+        
+    }
+
+    public void TransitionScenes()
+    {
+        SceneManager.LoadScene((int)m_NextScene);
     }
 }
