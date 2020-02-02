@@ -1,6 +1,6 @@
 Medicine	Housing	4	6	Davis: We're seeing a growing number of patients with the virus in the housing block. If you can send us four hours of power for medical devices  we can contain the outbreak. We can give you six credits. 
 Safety 	Hospital	8	8	Forfia: There's been a riot due to fear of the virus. We desperately need safety down here. [interrupted] 8 Hours. Please! 8 Credits. 
-Heating	Life Support	17	10	Cortez: Buddy, we need some heat down in life support. Our machines are freezing, and so are we! If you can give us power for 17 hours it should be enough to keep us from having to limit our output. I have 10 big ones with your name on it. 
+Heating	Life Support	17	10	Cortez: Buddy, we need some heat down in life support. Our machines are freezing, and so are we. If you can give us power for 17 hours it should be enough to keep us from having to limit our output. I have 10 big ones with your name on it. 
 Water	Recreational	9	7	Froh: We have one hell of a chemical spill down here, and need these water purifiers at full power. Now! It'll take about 9 hours. Seven credits is what we can spare.  
 Safety 	School	15	4	Thompson: You're not going to like this, but security needs to get down here, stat. We can only offer you 4 credits, but there's been a collapsed and students are trapped. We'll need approximately 15 hours of help. 
 Water	GreenHouse	8	6	Bailey: *crash* Water! *Crash* Please water! we have six credits *CRASH* 6 for 8 hours! [static] keep these plants alive so we don't starve [static][transmission interrupted] 
@@ -8,12 +8,13 @@ Safety 	Housing	13	12	Davis: That riot has spread to the housing block, and we n
 Heating	Recreational	19	14	Froh:The chemical spill fried some of our equipment, and anything wet is about to freeze up up here, including the pool if we don't act now. We have 14 credits, and figure we need 19 hours to get everything warmed up.  
 Safety 	Life Support	7	5	Delacroix: Smith is dead. We need safety! [gunshots] Safety! 5 credits! 7 hours! [gunshots] 
 Medicine	School	12	9	Thompson: The school is teaming with the virus, and we desperately need medicine. PLEASE. 12 hours. 9 credits. I'm begging. 
-Water	Housing	11	7	Davis: Sanitation is 
-Water	Housing			
-Water	Housing			
-Water	Housing			
-Water	Housing			
-Water	Housing			
-Water	Housing			
-Water	Housing			
-Water	Housing			
+Water	Housing	11	7	Davis: Sanitation is going to hell down here. If we don't get power to our water purifiers here now, it's over, OVER! 11 hours, 7 credits. 
+Medicine	Life Support	6	3	Delacroix: The outbreak is spreading fast and it's reached our techs in life support. The riot has been contained, for now, but without medicine for 6 hours we're going to be in even worse shape. We only have three credits, but it'll be worth it. \
+Medicine	Hospital	9	6	Forfia: We're going to lose the population without some more medecine, just 9 hours. We only have six credits but if we can push through now I believe we can contain the outbreak. 
+Safety 	GreenHouse	4	3	Bailey: [heavy breathing] Shhhhh. Send safety, quickly. 4 hours, three credits. [crash] Do it now or we're finished. [breaking glass]
+Safety 	Life Support	9	7	Delacroix: They're at the door again. We need safety for about 9 hours. [Banging] We have seven credits. If you want air, we need safety here NOW.
+Safety 	School	4	4	Thompson: It's awful, just awful. I can't take this anymore! Send safety: four and four. It's the last we have. Do it for the children. 
+Water	Housing	8	8	Davis: Water. Water. Water... 8 hours. 8 credits.  
+Heating	GreenHouse	2	6	Bailey: We've locked off the doors, but we've had to break them to do it. It's killed our heat, and these the oil in our machines will freeze without heat. Just two hours will get us back online, I think. Six credits is the last we have. 
+Medicine	Recreational	3	4	Froh: No time to explain: 3 hours of medicine, 4 credits. 
+Safety 	Housing	1	2	Davis: Just an hour, just one hour. Send safety. I'll give you my last two credits. 
