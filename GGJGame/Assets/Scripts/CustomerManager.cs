@@ -72,8 +72,9 @@ public class CustomerManager : Singleton<CustomerManager>
         }
         m_CurrentMoney = 0;
 
-        GameObject money_obj = Instantiate(m_OrderTextPrefab, new Vector3(150, 200), Quaternion.identity);
+        GameObject money_obj = Instantiate(m_OrderTextPrefab, new Vector3(200, 200), Quaternion.identity);
         money_obj.transform.SetParent(canvas.transform);
+        money_obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(100 , -250);
         m_MoneyText = money_obj.GetComponent<Text>();
         m_MoneyText.color = Color.green;
 
