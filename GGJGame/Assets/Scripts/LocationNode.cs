@@ -3,6 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Technically unnecessary since I can't think of a reason why we would want multiples of the same location. This makes parsing way easier though
+enum LocationTypes
+{
+    Housing = 0,
+    Hospital,
+    LifeSupport,
+    Recreational,
+    School,
+    GreenHouse,
+
+    LocationTypeCount
+}
+
 public class LocationNode : NodeInterface
 {
     Image img_comp;
