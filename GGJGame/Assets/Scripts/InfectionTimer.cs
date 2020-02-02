@@ -15,7 +15,7 @@ public abstract class InfectionTimer : MonoBehaviour
     {
         //The percent increase comes in as a 0-100 value, but we want it as a 0-1 value
         m_InfectionPercentIncreasePerSecond *= 0.01f;
-        m_InfectionPercent = 0.0f;
+        m_InfectionPercent *= 0.01f;
     }
 
     // Start is called before the first frame update
@@ -38,7 +38,7 @@ public abstract class InfectionTimer : MonoBehaviour
         if(button)
         {
             ColorBlock button_color_block = button.colors;
-            button_color_block.normalColor = new Color(1.0f, 0.0f, 0.0f, m_InfectionPercent);
+            button_color_block.normalColor = new Color(m_InfectionPercent, 0.0f, 0.0f, 1.0f);
             button.colors = button_color_block;
         }
     }
