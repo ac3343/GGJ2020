@@ -188,7 +188,7 @@ public class CustomerManager : Singleton<CustomerManager>
         {
             CustomerOrder order = new CustomerOrder();
             //For consistency and to not overload the player with a ton of data we're always making the order duration 10 seconds
-            order.m_OrderDuration = 20.0f;
+            order.m_OrderDuration = 120.0f;
             string[] order_tokens = customer_order_lines[line_index].Split('\t');
 
             //I don't like how I'm parsing these, but it works and I can't think of anything else right now
