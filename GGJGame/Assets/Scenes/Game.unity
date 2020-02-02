@@ -3985,6 +3985,11 @@ PrefabInstance:
       propertyPath: m_MoneyNeeded
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5029770003672162425, guid: 4a0fc1ec3322115408e6ee766f9949a9,
+        type: 3}
+      propertyPath: m_MaxCustomerSpawnWaitTime
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a0fc1ec3322115408e6ee766f9949a9, type: 3}
 --- !u!224 &1894487580 stripped

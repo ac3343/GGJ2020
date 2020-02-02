@@ -27,6 +27,9 @@ public class CustomerManager : Singleton<CustomerManager>
     GameObject m_OrderTextPrefab;
     [SerializeField]
     int m_MoneyNeeded;
+    [SerializeField]
+    float m_MaxCustomerSpawnWaitTime;
+    float m_CurrentCustomerSpawnWaitTime;
     int m_NumQueuedCustomers;
     int m_LastGeneratedCustomerOrderIndex;
     Customer[] m_Customers;
@@ -50,6 +53,7 @@ public class CustomerManager : Singleton<CustomerManager>
         }
 
         m_Customers = new Customer[m_CustomerQueueSize];
+        m_CurrentCustomerSpawnWaitTime = m_MaxCustomerSpawnWaitTime;
         m_NumQueuedCustomers = 0;
         m_LastGeneratedCustomerOrderIndex = 0;
         GenerateCustomerDataFromFile();
@@ -84,9 +88,14 @@ public class CustomerManager : Singleton<CustomerManager>
     // Update is called once per frame
     void Update()
     {
-        if(m_NumQueuedCustomers < m_Customers.Length || Input.GetButtonDown("Spawn"))
+        if(m_NumQueuedCustomers < m_Customers.Length)
         {
-            SpawnCustomer();
+            m_CurrentCustomerSpawnWaitTime -= Time.deltaTime;
+
+            if (m_CurrentCustomerSpawnWaitTime <= 0.0f)
+            {
+                SpawnCustomer();
+            }
         }
     }
 
@@ -118,6 +127,7 @@ public class CustomerManager : Singleton<CustomerManager>
             m_Customers[m_NumQueuedCustomers] = customer_comp;
             m_OrderText[m_NumQueuedCustomers].text = "\"" + order.m_Narrative + "\"\n" + order.m_Resource + " to " + order.m_Destination + ", " + order.m_OrderDuration + " hours, " + order.m_Reward + " credits";
             m_NumQueuedCustomers++;
+            m_CurrentCustomerSpawnWaitTime = m_MaxCustomerSpawnWaitTime;
         }
     }
     
@@ -178,7 +188,7 @@ public class CustomerManager : Singleton<CustomerManager>
         {
             CustomerOrder order = new CustomerOrder();
             //For consistency and to not overload the player with a ton of data we're always making the order duration 10 seconds
-            order.m_OrderDuration = 10.0f;
+            order.m_OrderDuration = 20.0f;
             string[] order_tokens = customer_order_lines[line_index].Split('\t');
 
             //I don't like how I'm parsing these, but it works and I can't think of anything else right now
