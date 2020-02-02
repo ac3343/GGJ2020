@@ -4,7 +4,6 @@ using UnityEngine;
 
 public struct CustomerOrder
 {
-
     public ResourceTypes m_Resource;
     public LocationTypes m_Destination;
     public float m_OrderDuration;
@@ -53,8 +52,7 @@ public class Customer : MonoBehaviour
             if (m_CurrentOrderDuration <= 0.0f)
             {
                 Debug.Log("The player took to long to satisfy my order!");
-                CustomerManager.Instance.FinishCustomer(this);
-                Destroy(this.gameObject);
+                CustomerManager.Instance.FinishCustomer(this, false);
             }
         }
         else
@@ -64,8 +62,7 @@ public class Customer : MonoBehaviour
             if(m_CurrentOrderFulfillmentDuration <= 0.0f)
             {
                 Debug.Log("The player fulfilled my order!");
-                CustomerManager.Instance.FinishCustomer(this);
-                Destroy(this.gameObject);
+                CustomerManager.Instance.FinishCustomer(this, true);
             }
         }
     }
@@ -87,5 +84,13 @@ public class Customer : MonoBehaviour
     public void UpdateOrder()
     {
         m_OrderSatisfied = GraphSolver.Instance.FindPath(m_Order.m_Resource, m_Order.m_Destination, false);
+    }
+
+    public CustomerOrder Order
+    {
+        get
+        {
+            return m_Order;
+        }
     }
 }
