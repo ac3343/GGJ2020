@@ -23,10 +23,13 @@ public class CustomerManager : Singleton<CustomerManager>
     TextAsset m_CustomerOrderFile;
     [SerializeField]
     int m_CustomerQueueSize;
+    [SerializeField]
+    GameObject m_OrderTextPrefab;
     int m_NumQueuedCustomers;
     int m_LastGeneratedCustomerOrderIndex;
     Customer[] m_Customers;
     CustomerOrder[] m_CustomerOrders;
+    Text[] m_OrderText;
 
     Text text_comp;
 
@@ -52,7 +55,18 @@ public class CustomerManager : Singleton<CustomerManager>
     void Start()
     {
         EventSystem.PowerConsumerActiveStateChangeHandler += UpdateCustomerOrders;
+
+        m_OrderText = new Text[m_CustomerQueueSize];
         text_comp = gameObject.GetComponent<Text>();
+        GameObject canvas = FindObjectOfType<Canvas>().gameObject;
+
+        for (int i = 0; i < m_CustomerQueueSize; i++)
+        {
+            GameObject text_obj = Instantiate(m_OrderTextPrefab, new Vector3(150, 450 - 60 * i), Quaternion.identity);
+            text_obj.transform.SetParent(canvas.transform);
+            m_OrderText[i] = text_obj.GetComponent<Text>();
+
+        }
     }
 
     // Update is called once per frame
@@ -85,9 +99,8 @@ public class CustomerManager : Singleton<CustomerManager>
             m_LastGeneratedCustomerOrderIndex %= m_CustomerOrders.Length;
 
             m_Customers[m_NumQueuedCustomers] = customer_comp;
+            m_OrderText[m_NumQueuedCustomers].text = customer.name + " wants " + order.m_Resource + " wired to " + order.m_Destination + " for " + order.m_OrderDuration + " hours. They'll pay $" + order.m_Reward;
             m_NumQueuedCustomers++;
-
-            text_comp.text = customer.name + " wants " + order.m_Resource + " wired to " + order.m_Destination + " for " + order.m_OrderDuration + " hours. They'll pay $" + order.m_Reward;
         }
     }
     
