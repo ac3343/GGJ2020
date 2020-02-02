@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum ResourceTypes
+public enum ResourceTypes
 {
     Water = 0,
     Heating,
@@ -34,5 +34,13 @@ public class ResourceNode : NodeInterface
     {
         base.NodeOnClick();
         Debug.Log("Clicked on a Resource Node.");
+    }
+
+    public ResourceTypes ResourceType
+    {
+        get
+        {
+            return m_ResourceType;
+        }
     }
 }

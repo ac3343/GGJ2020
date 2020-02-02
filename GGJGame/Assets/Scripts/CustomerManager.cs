@@ -22,12 +22,11 @@ public class CustomerManager : Singleton<CustomerManager>
     [SerializeField]
     TextAsset m_CustomerOrderFile;
     [SerializeField]
-    int m_MaxRewardAmount;
-    [SerializeField]
     int m_CustomerQueueSize;
     int m_NumQueuedCustomers;
-    List<Customer> m_Customers;
-    List<CustomerOrder> m_CustomerOrders;
+    int m_LastGeneratedCustomerOrderIndex;
+    Customer[] m_Customers;
+    CustomerOrder[] m_CustomerOrders;
 
     Text text_comp;
 
@@ -43,8 +42,10 @@ public class CustomerManager : Singleton<CustomerManager>
             Debug.LogError("The customer queue size was <= 0, this shouldn't happen!");
         }
 
-        m_Customers = new List<Customer>(m_CustomerQueueSize);
+        m_Customers = new Customer[m_CustomerQueueSize];
         m_NumQueuedCustomers = 0;
+        m_LastGeneratedCustomerOrderIndex = 0;
+        GenerateCustomerDataFromFile();
     }
 
     // Start is called before the first frame update
@@ -57,7 +58,7 @@ public class CustomerManager : Singleton<CustomerManager>
     // Update is called once per frame
     void Update()
     {
-        if(m_NumQueuedCustomers < m_Customers.Capacity || Input.GetButtonDown("Spawn"))
+        if(m_NumQueuedCustomers < m_Customers.Length || Input.GetButtonDown("Spawn"))
         {
             SpawnCustomer();
         }
@@ -65,8 +66,12 @@ public class CustomerManager : Singleton<CustomerManager>
 
     void SpawnCustomer()
     {
+        //If we somehow get here and the customer orders wasn't filled out then fill it out
+        if(m_CustomerOrders == null)
+        {
+            GenerateCustomerDataFromFile();
+        }
 
-        StreamReader reaser = new StreamReader(m_CustomerOrderFile.)
         Debug.Log("Spawning a customer");
         GameObject customer = new GameObject();
         customer.name = "Customer";
@@ -74,75 +79,86 @@ public class CustomerManager : Singleton<CustomerManager>
 
         if (customer_comp)
         {
-            ResourceNode[] resources = GraphSolver.Instance.Resources;
-            LocationNode[] locations = GraphSolver.Instance.Locations;
-            int random_resource_index = Random.Range(0, resources.Length);
-
-            CustomerOrder order;
-            order.m_Resource = resources[random_resource_index];
-
-            int order_attempts = 0;
-            LocationNode random_location;
-            do
-            {
-                order_attempts++;
-                int random_location_index = Random.Range(0, locations.Length);
-                random_location = locations[random_location_index];
-            }
-            while (!GraphSolver.Instance.FindPath(order.m_Resource, random_location, true) && order_attempts < resources.Length * 2);
-
-            order.m_Destination = random_location;
-
-            order.m_Reward = Random.Range(1, m_MaxRewardAmount);
-            //TODO: this is hard coded, fix this at some point to not be
-            order.m_OrderDuration = 5.0f;
-            order.m_OrderFulfillmentDuration = 0;
-
+            CustomerOrder order = m_CustomerOrders[m_LastGeneratedCustomerOrderIndex];
             customer_comp.SetupCustomer(order);
-            m_Customers.Add(customer_comp);
+            m_LastGeneratedCustomerOrderIndex++;
+            m_LastGeneratedCustomerOrderIndex %= m_CustomerOrders.Length;
+
+            m_Customers[m_NumQueuedCustomers] = customer_comp;
+            m_NumQueuedCustomers++;
 
             text_comp.text = customer.name + " wants " + order.m_Resource + " wired to " + order.m_Destination + " for " + order.m_OrderDuration + " hours. They'll pay $" + order.m_Reward;
         }
     }
-
-    void FindCustomerDataFromFile(int customer_number)
+    
+    public void FinishCustomer(Customer customer)
     {
-        int file_char_index = 0;
-        char curr_char = m_CustomerOrderFile.text[0];
+
+    }
+
+    void GenerateCustomerDataFromFile()
+    {
+        if (m_CustomerOrders != null)
+        {
+            return;
+        }
+
         //Text file format:
         //The customer data file is a .tsv that has a different customer on each row
         //The format goes resource, location, duration, reward, narrative text
-        string[] customer_order_lines = m_CustomerOrderFile.text.Split('\n');
+        char[] delimeters = { '\n', '\r' };
+        string[] customer_order_lines = m_CustomerOrderFile.text.Split(delimeters, StringSplitOptions.RemoveEmptyEntries);
+        m_CustomerOrders = new CustomerOrder[customer_order_lines.Length];
 
-        for(int i = 0;i<customer_order_lines.Length;i++)
+        for(int line_index = 0; line_index < customer_order_lines.Length; line_index++)
         {
-            CustomerOrder order;
-            string[] order_tokens = customer_order_lines[i].Split('\t');
+            CustomerOrder order = new CustomerOrder();
+            //For consistency and to not overload the player with a ton of data we're always making the order duration 10 seconds
+            order.m_OrderDuration = 10.0f;
+            string[] order_tokens = customer_order_lines[line_index].Split('\t');
 
             //I don't like how I'm parsing these, but it works and I can't think of anything else right now
-            for (int j = 0; j < order_tokens.Length; j++)
+            for (int token_index = 0; token_index < order_tokens.Length; token_index++)
             {
-                string cur_token = order_tokens[j];
+                string cur_token = order_tokens[token_index];
 
-                switch ((CustomerOrderParseFormat)j)
+                if(cur_token == null || cur_token.Length <= 0)
+                {
+                    continue;
+                }
+
+                for (int string_index = 0; string_index < cur_token.Length; string_index++)
+                {
+                    if(cur_token[string_index] == ' ')
+                    {
+                        cur_token = cur_token.Remove(string_index, 1);
+                        string_index--;
+                    }
+                }
+
+                switch ((CustomerOrderParseFormat)token_index)
                 {
                     case CustomerOrderParseFormat.Resource:
                     {
-                        if(!Enum.TryParse(cur_token, out order.m_Destination))
+                        if(!Enum.TryParse(cur_token, out order.m_Resource))
                         {
-                            Debug.LogError("We were unable to parse order " + i + " duration!");
+                            Debug.LogError("We were unable to parse order " + line_index + "'s resource!");
                         }
                         break;
                     }
                     case CustomerOrderParseFormat.Location:
                     {
+                        if(!Enum.TryParse(cur_token, out order.m_Destination))
+                        {
+                            Debug.LogError("We were unable to parse order " + line_index + "'s destination!");
+                        }
                         break;
                     }
                     case CustomerOrderParseFormat.Duration:
                     {
                         if(!float.TryParse(cur_token, out order.m_OrderFulfillmentDuration))
                         {
-                            Debug.LogError("We were unable to parse order " + i + " duration!");
+                            Debug.LogError("We were unable to parse order " + line_index + "'s duration!");
                         }
                         break;
                     }
@@ -150,34 +166,25 @@ public class CustomerManager : Singleton<CustomerManager>
                     {
                         if(!int.TryParse(cur_token, out order.m_Reward))
                         {
-                            Debug.LogError("We were unable to parse order " + i + " reward!");
+                            Debug.LogError("We were unable to parse order " + line_index + "'s reward!");
                         }
                         break;
                     }
                     case CustomerOrderParseFormat.Narrative:
                     {
+                        order.m_Narrative = cur_token;
                         break;
                     }
                 }
             }
-        }
 
-        while(m_CustomerOrderFile.text[file_char_index] != '\0')
-        {
-            if (m_CustomerOrderFile.text[file_char_index] == '\t')
-            {
-                string text_token = m_CustomerOrderFile.text.Split(Substring(0, file_char_index);
-            }
-            else
-            {
-                file_char_index++;
-            }
+            m_CustomerOrders[line_index] = order;
         }
     }
 
     public void UpdateCustomerOrders(GameObject triggered_obj, bool is_power_on)
     {
-        for (int i = 0; i < m_Customers.Count; i++)
+        for (int i = 0; i < m_NumQueuedCustomers; i++)
         {
             m_Customers[i].UpdateOrder();
         }
