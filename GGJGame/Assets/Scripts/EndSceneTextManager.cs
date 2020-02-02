@@ -47,12 +47,12 @@ public class EndSceneTextManager : MonoBehaviour
         if (GameManager.Instance.GameWon)
         {
             m_TitleText.text = "You Win!";
-            m_TitleText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            m_TitleText.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
         }
         else
         {
             m_TitleText.text = "GAME OVER.";
-            m_TitleText.color = new Color(0.0f, 0.0f, 1.0f, 1.0f);
+            m_TitleText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         }
 
         m_MoneyText.text = "Final Money: " + money;

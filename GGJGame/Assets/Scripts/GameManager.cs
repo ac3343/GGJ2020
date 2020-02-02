@@ -47,16 +47,19 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        m_CurrentDayLength -= Time.deltaTime;
-
-        if(m_CurrentDayLength <= 0.0f)
+        if(SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.GameplayScene)
         {
-            EndTheDay();
-        }
+            m_CurrentDayLength -= Time.deltaTime;
 
-        if(InfectionManager.Instance.InfectionPercent >= m_InfectionLosePercent)
-        {
-            EndTheDay();
+            if (m_CurrentDayLength <= 0.0f)
+            {
+                EndTheDay();
+            }
+
+            if (InfectionManager.Instance.InfectionPercent >= m_InfectionLosePercent)
+            {
+                EndTheDay();
+            }
         }
     }
 
