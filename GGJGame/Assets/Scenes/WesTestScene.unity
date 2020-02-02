@@ -291,13 +291,8 @@ GameObject:
   - component: {fileID: 287160775}
   - component: {fileID: 287160774}
   - component: {fileID: 287160773}
-<<<<<<< HEAD
-  - component: {fileID: 287160777}
-  - component: {fileID: 287160778}
-=======
   - component: {fileID: 287160778}
   - component: {fileID: 287160777}
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
   m_Layer: 5
   m_Name: PipeButton (3)
   m_TagString: Untagged
@@ -428,14 +423,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 287160771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: fb8140cb5f3c52c4dbde47c5a6f5ba9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InfectionPercentIncreasePerSecond: 1
-  m_InfectionPercent: 0
-  m_MaxInfectionTime: 1
-=======
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -470,7 +457,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
 --- !u!114 &287160778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,13 +860,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 536089975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 4263ab69a03233d44b2e035b1ea813a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InfectionPercentIncreasePerSecond: 1
-  m_InfectionPercent: 0
-=======
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -915,7 +894,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
 --- !u!1 &641482623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,13 +1207,8 @@ GameObject:
   - component: {fileID: 912303376}
   - component: {fileID: 912303375}
   - component: {fileID: 912303378}
-<<<<<<< HEAD
-  - component: {fileID: 912303379}
-  - component: {fileID: 912303380}
-=======
   - component: {fileID: 912303380}
   - component: {fileID: 912303379}
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
   m_Layer: 5
   m_Name: PipeButton
   m_TagString: Untagged
@@ -1366,14 +1339,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 912303373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: fb8140cb5f3c52c4dbde47c5a6f5ba9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InfectionPercentIncreasePerSecond: 1
-  m_InfectionPercent: 0
-  m_MaxInfectionTime: 1
-=======
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1408,7 +1373,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
 --- !u!114 &912303380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,13 +2004,8 @@ GameObject:
   - component: {fileID: 1431644313}
   - component: {fileID: 1431644312}
   - component: {fileID: 1431644311}
-<<<<<<< HEAD
-  - component: {fileID: 1431644315}
-  - component: {fileID: 1431644316}
-=======
   - component: {fileID: 1431644316}
   - component: {fileID: 1431644315}
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
   m_Layer: 5
   m_Name: PipeButton (2)
   m_TagString: Untagged
@@ -2177,14 +2136,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431644309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: fb8140cb5f3c52c4dbde47c5a6f5ba9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InfectionPercentIncreasePerSecond: 1
-  m_InfectionPercent: 0
-  m_MaxInfectionTime: 1
-=======
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -2219,7 +2170,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
 --- !u!114 &1431644316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2389,13 +2339,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1489835033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 4263ab69a03233d44b2e035b1ea813a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InfectionPercentIncreasePerSecond: 1
-  m_InfectionPercent: 0
-=======
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -2430,7 +2373,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
 --- !u!1 &1607764460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,13 +2939,8 @@ GameObject:
   - component: {fileID: 2000915949}
   - component: {fileID: 2000915948}
   - component: {fileID: 2000915947}
-<<<<<<< HEAD
-  - component: {fileID: 2000915951}
-  - component: {fileID: 2000915952}
-=======
   - component: {fileID: 2000915952}
   - component: {fileID: 2000915951}
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
   m_Layer: 5
   m_Name: PipeButton (1)
   m_TagString: Untagged
@@ -3134,14 +3071,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2000915945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: fb8140cb5f3c52c4dbde47c5a6f5ba9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InfectionPercentIncreasePerSecond: 1
-  m_InfectionPercent: 0
-  m_MaxInfectionTime: 1
-=======
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -3176,7 +3105,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
 --- !u!114 &2000915952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3346,13 +3274,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2094891799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 4263ab69a03233d44b2e035b1ea813a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InfectionPercentIncreasePerSecond: 1
-  m_InfectionPercent: 0
-=======
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -3387,7 +3308,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
->>>>>>> 547136c87bbe96231738c409c0e8fcb62b8d48fd
 --- !u!1 &2095255090
 GameObject:
   m_ObjectHideFlags: 0
