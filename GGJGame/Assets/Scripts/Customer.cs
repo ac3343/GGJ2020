@@ -93,4 +93,9 @@ public class Customer : MonoBehaviour
             return m_Order;
         }
     }
+
+    public bool ProcessingOrder
+    {
+        get { return m_OrderSatisfied; }
+    }
 }

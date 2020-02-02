@@ -25,13 +25,17 @@ public class CustomerManager : Singleton<CustomerManager>
     int m_CustomerQueueSize;
     [SerializeField]
     GameObject m_OrderTextPrefab;
+    [SerializeField]
+    int m_MoneyNeeded;
     int m_NumQueuedCustomers;
     int m_LastGeneratedCustomerOrderIndex;
     Customer[] m_Customers;
     CustomerOrder[] m_CustomerOrders;
     Text[] m_OrderText;
+    int m_CurrentMoney;
+    Text m_MoneyText;
 
-    Text text_comp;
+
 
     private void Awake()
     {
@@ -57,16 +61,21 @@ public class CustomerManager : Singleton<CustomerManager>
         EventSystem.PowerConsumerActiveStateChangeHandler += UpdateCustomerOrders;
 
         m_OrderText = new Text[m_CustomerQueueSize];
-        text_comp = gameObject.GetComponent<Text>();
         GameObject canvas = FindObjectOfType<Canvas>().gameObject;
 
         for (int i = 0; i < m_CustomerQueueSize; i++)
         {
-            GameObject text_obj = Instantiate(m_OrderTextPrefab, new Vector3(150, 450 - 60 * i), Quaternion.identity);
+            GameObject text_obj = Instantiate(m_OrderTextPrefab, new Vector3(150, 450 - 100 * i), Quaternion.identity);
             text_obj.transform.SetParent(canvas.transform);
             m_OrderText[i] = text_obj.GetComponent<Text>();
-
         }
+        m_CurrentMoney = 0;
+
+        GameObject money_obj = Instantiate(m_OrderTextPrefab, new Vector3(500, 450), Quaternion.identity);
+        money_obj.transform.SetParent(canvas.transform);
+        m_MoneyText = money_obj.GetComponent<Text>();
+
+        UpdateMoneyText();
     }
 
     // Update is called once per frame
@@ -99,7 +108,7 @@ public class CustomerManager : Singleton<CustomerManager>
             m_LastGeneratedCustomerOrderIndex %= m_CustomerOrders.Length;
 
             m_Customers[m_NumQueuedCustomers] = customer_comp;
-            m_OrderText[m_NumQueuedCustomers].text = customer.name + " wants " + order.m_Resource + " wired to " + order.m_Destination + " for " + order.m_OrderDuration + " hours. They'll pay $" + order.m_Reward;
+            m_OrderText[m_NumQueuedCustomers].text = "\"" + order.m_Narrative + "\"\n" + order.m_Resource + " to " + order.m_Destination + ", " + order.m_OrderDuration + " hours, " + order.m_Reward + " credits";
             m_NumQueuedCustomers++;
         }
     }
@@ -122,6 +131,8 @@ public class CustomerManager : Singleton<CustomerManager>
                     if (completed_order)
                     {
                         //TODO: Add the reward money here
+                        m_CurrentMoney += customer.Order.m_Reward;
+                        UpdateMoneyText();
                     }
 
                     Destroy(customer.gameObject);
@@ -232,6 +243,20 @@ public class CustomerManager : Singleton<CustomerManager>
         for (int i = 0; i < m_NumQueuedCustomers; i++)
         {
             m_Customers[i].UpdateOrder();
+
+            if (m_Customers[i].ProcessingOrder)
+            {
+                m_OrderText[i].color = Color.red;
+            }
+            else
+            {
+                m_OrderText[i].color = Color.black;
+            }
         }
+    }
+
+    void UpdateMoneyText()
+    {
+        m_MoneyText.text = "$" + m_CurrentMoney + "/" + m_MoneyNeeded;
     }
 }
