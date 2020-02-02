@@ -172,19 +172,12 @@ public class CustomerManager : Singleton<CustomerManager>
                     continue;
                 }
 
-                for (int string_index = 0; string_index < cur_token.Length; string_index++)
-                {
-                    if(cur_token[string_index] == ' ')
-                    {
-                        cur_token = cur_token.Remove(string_index, 1);
-                        string_index--;
-                    }
-                }
-
                 switch ((CustomerOrderParseFormat)token_index)
                 {
                     case CustomerOrderParseFormat.Resource:
                     {
+                        cur_token = cur_token.Replace(" ", String.Empty);
+
                         if(!Enum.TryParse(cur_token, out order.m_Resource))
                         {
                             Debug.LogError("We were unable to parse order " + line_index + "'s resource!");
@@ -193,6 +186,8 @@ public class CustomerManager : Singleton<CustomerManager>
                     }
                     case CustomerOrderParseFormat.Location:
                     {
+                        cur_token = cur_token.Replace(" ", String.Empty);
+
                         if(!Enum.TryParse(cur_token, out order.m_Destination))
                         {
                             Debug.LogError("We were unable to parse order " + line_index + "'s destination!");
