@@ -130,6 +130,8 @@ public class CustomerManager : Singleton<CustomerManager>
             else
             {
                 m_Customers[i - 1] = m_Customers[i];
+                m_OrderText[i - 1].text = m_OrderText[i].text;
+                m_OrderText[i].text = " ";
             }
         }
 
