@@ -51,4 +51,20 @@ public class NodeConnection : MonoBehaviour
     {
         return m_NodeOne == requesting_node || m_NodeTwo == requesting_node;
     }
+
+    public NodeInterface StartNode
+    {
+        get
+        {
+            return m_NodeOne;
+        }
+    }
+
+    public NodeInterface EndNode
+    {
+        get
+        {
+            return m_NodeTwo;
+        }
+    }
 }

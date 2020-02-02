@@ -16,7 +16,7 @@ public class PowerConsumer : MonoBehaviour
         m_Active = false;
     }
 
-    private void Start()
+    void Start()
     {
         Button button_comp = GetComponent<Button>();
 
@@ -59,7 +59,7 @@ public class PowerConsumer : MonoBehaviour
 
         if (old_active != m_Active)
         {
-            EventSystem.Instance.OnPowerConsumerActiveStateChange();
+            EventSystem.Instance.OnPowerConsumerActiveStateChange(this.gameObject, m_Active);
         }
     }
 
